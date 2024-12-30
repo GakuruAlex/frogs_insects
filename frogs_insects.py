@@ -13,6 +13,8 @@ def no_of_catches(frogs: List[int], tongues: List[int], insects: List[int])-> Li
    
     catch_radii = [(max(0,combo[0] - combo[1]), combo[0]+ combo[1]) for combo in zip(frogs, tongues)]
 
+    print(f"Catcn range: {catch_radii}")
+
     if len(insects) == 0 and len(frogs) > 0:
         return [0 for _ in frogs]
     elif len(frogs) == 0:
@@ -21,7 +23,7 @@ def no_of_catches(frogs: List[int], tongues: List[int], insects: List[int])-> Li
         return [count_catch(radius, insects) for radius in catch_radii]
 
 def count_catch(radius: int, insects: List[int])-> int:
-    return sum(map(lambda insect: insect >= radius[1] and insect <= radius[0], insects))
+    return sum(map(lambda insect: radius[0] <= insect  and insect <= radius[1], insects))
 
 def main()-> None:
     frogs: List[int] = list(map(int, input(f"Frogs locations: ").split(" ")))
