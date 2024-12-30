@@ -1,5 +1,15 @@
 from typing import List
 def no_of_catches(frogs: List[int], tongues: List[int], insects: List[int])-> List[int]:
+    """_Calculate how many insects a frog can catch from its given location, given frogs locations_
+
+    Args:
+        frogs (List[int]): _A list of where the frogs are located_
+        tongues (List[int]): _A list of tongues each corresponding to a frog_
+        insects (List[int]): _A list of locations for frogs_
+
+    Returns:
+        List[int]: _A list of number of insects each frog can catch from its given location_
+    """
    
     catch_radii = [(max(0,combo[0] - combo[1]), combo[0]+ combo[1]) for combo in zip(frogs, tongues)]
 
