@@ -1,6 +1,7 @@
 from typing import List
 def no_of_catches(frogs: List[int], tongues: List[int], insects: List[int])-> List[int]:
-    catch_radii = list(map(lambda frog, tongue: frog + tongue , frogs, tongues))
+   
+    catch_radii = [(max(0,combo[0] - combo[1]), combo[0]+ combo[1]) for combo in zip(frogs, tongues)]
 
     if len(insects) == 0 and len(frogs) > 0:
         return [0 for _ in frogs]
@@ -10,7 +11,7 @@ def no_of_catches(frogs: List[int], tongues: List[int], insects: List[int])-> Li
         return [count_catch(radius, insects) for radius in catch_radii]
 
 def count_catch(radius: int, insects: List[int])-> int:
-    return sum(map(lambda insect: insect <= radius, insects))
+    return sum(map(lambda insect: insect >= radius[1] and insect <= radius[0], insects))
 
 def main()-> None:
     frogs: List[int] = list(map(int, input(f"Frogs locations: ").split(" ")))
