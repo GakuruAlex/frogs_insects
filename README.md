@@ -10,7 +10,7 @@ You are given:
 
 ### The  $i^{th}$ frog catches the  $j^{th}$ insect if (insect<sub>j</sub> - frog<sub>i</sub>) <= tongue<sub>i</sub> ###
 
-### The output is A list of integers where the $i^{th}$ element represents the number of insects caught by the $i^{th}$ frog. ###
+### Find the output  a list of integers where the $i^{th}$ element represents the number of insects caught by the $i^{th}$ frog. ###
 
 ## Constraints ##
 
